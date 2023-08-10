@@ -19,7 +19,7 @@ opcua_client = await OPCUAClient.create(asyncua_client, user, password)
 
 # Read value
 node_id = 'ns=3;s="DB_DVSData"."CD"."CyclicInputDataLE"."DVS_Status"'
-dvs_status = await self.client.read(node_id)
+dvs_status = await opcua_client.read(node_id)
 
 # Write value
 speed_var = OPCUAVariable(
@@ -27,5 +27,5 @@ speed_var = OPCUAVariable(
     'float'
 )
 speed = 10
-await client.write(speed_var, speed)
+await opcua_client.write(speed_var, speed)
 ```
