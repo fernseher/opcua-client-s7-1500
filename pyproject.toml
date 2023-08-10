@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "opcua-client"
+version = "0.1.0"
+description = "Minimal client for OPCUA communication"
+authors = ["Maximilian Eder <maximilian.eder@framatome.com>"]
+readme = "README.md"
+packages = [{include = "opcua_client"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+asyncua = "^1.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
