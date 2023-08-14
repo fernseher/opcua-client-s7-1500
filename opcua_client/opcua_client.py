@@ -1,15 +1,8 @@
-from dataclasses import dataclass
 import logging
 from asyncua import Client, ua
 
 
 logger = logging.getLogger(__name__)
-
-
-@dataclass
-class OPCUAVariable:
-    node_id: str
-    type: str
 
 
 class OPCUAClient:
