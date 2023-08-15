@@ -9,7 +9,7 @@ Simple async OPCUA client wrapping the asyncua client to enable communication wi
 
 ```python
 from asyncua import Client
-from opcua_client import OPCUAClient, OPCUAVariable
+from opcua_client import OPCUAClient
 
 url = "opc.tcp://192.168.100.127:4840"
 user = 'FAU'
@@ -22,10 +22,7 @@ node_id = 'ns=3;s="DB_DVSData"."CD"."CyclicInputDataLE"."DVS_Status"'
 dvs_status = await opcua_client.read(node_id)
 
 # Write value
-speed_var = OPCUAVariable(
-    'ns=3;s="DB_DVSData"."CD"."CyclicOutputDataBE"."Feed Speed"',
-    'float'
-)
+speed_id = 'ns=3;s="DB_DVSData"."CD"."CyclicOutputDataBE"."Feed Speed"'
 speed = 10
 await opcua_client.write(speed_var, speed)
 ```
