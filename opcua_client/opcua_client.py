@@ -1,5 +1,6 @@
 import logging
 from asyncua import Client, ua
+from typing import Any
 
 
 logger = logging.getLogger(__name__)
@@ -25,7 +26,7 @@ class OPCUAClient:
         await self.client.load_type_definitions()
         return self
 
-    async def read(self, variable_id: str) -> int | float | str:
+    async def read(self, variable_id: str) -> Any:
         """Returns value of specified PLC variable """
         var = self.client.get_node(variable_id)
         value = await var.read_value()
@@ -34,7 +35,7 @@ class OPCUAClient:
     async def write(
             self,
             variable_id: str,
-            value: int | float | str,
+            value: Any,
     ) -> None:
         """Writes value to specified PLC variable"""
         var = self.client.get_node(variable_id)
